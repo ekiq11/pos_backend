@@ -92,6 +92,14 @@
                                         <input type="radio" name="category" value="snack" class="selectgroup-input">
                                         <span class="selectgroup-button">Snack</span>
                                     </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="school" class="selectgroup-input">
+                                        <span class="selectgroup-button">School</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="other" class="selectgroup-input">
+                                        <span class="selectgroup-button">Other</span>
+                                    </label>
 
                                 </div>
                             </div>

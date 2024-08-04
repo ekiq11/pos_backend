@@ -94,6 +94,16 @@
                                             @if ($product->category == 'snack') checked @endif>
                                         <span class="selectgroup-button">Snack</span>
                                     </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="snack" class="selectgroup-input"
+                                            @if ($product->category == 'school') checked @endif>
+                                        <span class="selectgroup-button">School</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="snack" class="selectgroup-input"
+                                            @if ($product->category == 'other') checked @endif>
+                                        <span class="selectgroup-button">Other</span>
+                                    </label>
 
                                 </div>
                             </div>

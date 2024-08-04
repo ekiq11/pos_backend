@@ -85,14 +85,12 @@
                                                 </td>
                                                 <td>
                                                     @if ($product->image)
-                                                        <img src="{{ asset('storage/products/'.$product->image) }}" alt=""
-                                                            width="100px" class="img-thumbnail">
-                                                            @else
-                                                            <span class="badge badge-danger">No Image</span>
-
+                                                        <img src="{{ asset('storage/' . $product->image) }}" alt="" width="100px" class="img-thumbnail">
+                                                    @else
+                                                        <span class="badge badge-danger">No Image</span>
                                                     @endif
-
                                                 </td>
+
                                                 <td>{{ $product->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">

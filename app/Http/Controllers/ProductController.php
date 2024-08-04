@@ -27,29 +27,33 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|min:3|unique:products',
-            'price' => 'required|integer',
-            'stock' => 'required|integer',
-            'category' => 'required|in:food,drink,snack',
-            'image' => 'required|image|mimes:png,jpg,jpeg'
-        ]);
+{
+    $request->validate([
+        'name' => 'required|min:3|unique:products',
+        'price' => 'required|integer',
+        'stock' => 'required|integer',
+        'category' => 'required|in:food,drink,snack,school,other',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
-        $filename = time() . '.' . $request->image->extension();
-        $request->image->storeAs('public/products', $filename);
-        $data = $request->all();
+    $product = new \App\Models\Product;
+    $product->name = $request->name;
+    $product->price = (int) $request->price;
+    $product->stock = (int) $request->stock;
+    $product->category = $request->category;
+    $product->save();
 
-        $product = new \App\Models\Product;
-        $product->name = $request->name;
-        $product->price = (int) $request->price;
-        $product->stock = (int) $request->stock;
-        $product->category = $request->category;
-        $product->image = $filename;
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $imagePath = $image->storeAs('public/products', $product->id . '.' . $image->getClientOriginalExtension());
+        $product->image = 'products/' . $product->id . '.' . $image->getClientOriginalExtension(); // Simpan path relatif
         $product->save();
-
-        return redirect()->route('product.index')->with('success', 'Product successfully created');
     }
+
+
+    return redirect()->route('product.index')->with('success', 'Product successfully created');
+}
+
 
     public function edit($id)
     {
