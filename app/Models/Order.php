@@ -15,6 +15,9 @@ class Order extends Model
         'total_price',
         'total_item',
         'kasir_id',
+        'nama_cust',
+        'alamat_cust',
+        'whatsapp_cust',
         'payment_method'
     ];
 

@@ -41,7 +41,7 @@ class ProductController extends Controller
             'price' => (int) $request->price,
             'stock' => (int) $request->stock,
             'category' => $request->category,
-            'image' => $filename,
+            'image' => 'products/'.$filename,
             'is_favorite' => $request->is_favorite
         ]);
 

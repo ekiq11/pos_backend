@@ -28,6 +28,9 @@ class OrderController extends Controller
             'kasir_id' => $request->kasir_id,
             'total_price' => $request->total_price,
             'total_item' => $request->total_item,
+            'nama_cust' => $request->nama_cust,
+            'alamat_cust' => $request->alamat_cust,
+            'whatsapp_cust' => $request->whatsapp_cust,
             'payment_method' => $request->payment_method,
         ]);
 

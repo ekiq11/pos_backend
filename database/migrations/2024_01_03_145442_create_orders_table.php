@@ -21,6 +21,12 @@ return new class extends Migration
             $table->integer('total_item');
             //kasir id
             $table->foreignId('kasir_id')->constrained('users');
+            //nama pelanggan
+            $table->string('nama_cust');
+            //alamat
+            $table->string('alamat_cust');
+            //whatsapp
+            $table->string('whatsapp_cust');
             //payment method
             $table->string('payment_method');
 

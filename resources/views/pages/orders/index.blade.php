@@ -58,6 +58,9 @@
                                             <th>Total Price</th>
                                             <th>Total Item</th>
                                             <th>Kasir</th>
+                                            <th>Pelanggan</th>
+                                            <th>Alamat</th>
+                                            <th>Whatsapp</th>
                                         </tr>
                                         @foreach ($orders as $order)
                                             <tr>
@@ -73,6 +76,18 @@
                                                 </td>
                                                 <td>
                                                     {{ $order->kasir->name }}
+
+                                                </td>
+                                                <td>
+                                                    {{ $order->nama_cust }}
+
+                                                </td>
+                                                <td>
+                                                    {{ $order->alamat_cust }}
+
+                                                </td>
+                                                <td>
+                                                    {{ $order->whatsapp_cust }}
 
                                                 </td>
 
