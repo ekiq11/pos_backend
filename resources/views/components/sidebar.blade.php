@@ -1,10 +1,10 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">POS BAHRI</a>
+            <a href="index.html">CASHIER APP</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">PB</a>
+            <a href="index.html">2024</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -29,6 +29,16 @@
             </li>
 
             <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Category</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('categories.index') }}">All Category</a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Products</span></a>
                 <ul class="dropdown-menu">
                     <li>
@@ -47,6 +57,7 @@
 
                 </ul>
             </li>
+
 
     </aside>
 </div>
