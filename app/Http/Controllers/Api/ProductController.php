@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
@@ -10,10 +9,16 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //all products
-        $products = \App\Models\Product::orderBy('id', 'desc')->get();
+        // Dapatkan kasir_id dari user yang sedang login
+        $kasir_id = auth()->user()->id;
+
+        // Filter produk berdasarkan kasir_id
+        $products = \App\Models\Product::where('kasir_id', $kasir_id)
+                    ->orderBy('id', 'desc')
+                    ->get();
+
         return response()->json([
             'success' => true,
             'message' => 'List Data Product',
@@ -36,13 +41,18 @@ class ProductController extends Controller
 
         $filename = time() . '.' . $request->image->extension();
         $request->image->storeAs('public/products', $filename);
+
+        // Dapatkan kasir_id dari user yang sedang login
+        $kasir_id = auth()->user()->id;
+
         $product = \App\Models\Product::create([
             'name' => $request->name,
             'price' => (int) $request->price,
             'stock' => (int) $request->stock,
             'category' => $request->category,
             'image' => 'products/'.$filename,
-            'is_favorite' => $request->is_favorite
+            'is_favorite' => $request->is_favorite,
+            'kasir_id' => $kasir_id
         ]);
 
         if ($product) {
@@ -59,27 +69,5 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    // ... method lain tanpa perubahan
 }

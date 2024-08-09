@@ -19,6 +19,11 @@ class Product extends Model
         'stock',
         'category',
         'image',
-        'is_best_seller'
+        'is_best_seller',
+        'kasir_id',
     ];
+    public function kasir()
+    {
+        return $this->belongsTo(User::class, 'kasir_id', 'id');
+    }
 }

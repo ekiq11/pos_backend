@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('category', ['food', 'drink', 'snack']);
             //image
             $table->string('image')->nullable();
+            $table->foreignId('kasir_id')->constrained('users');
             $table->timestamps();
         });
     }

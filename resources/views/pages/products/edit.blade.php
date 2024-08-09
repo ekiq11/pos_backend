@@ -76,20 +76,27 @@
                                     </div>
                                 @enderror
                             </div>
-                              <select
-                                    class="form-control selectric @error('category_id')
-                                    is-invalid
-                                @enderror"
-                                    name="category_id">
-                                    <option value="">Choose Category</option>
-                                    @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}"
-                                            {{ $category->id == $product->category_id ? 'selected' : '' }}>
-                                            {{ $category->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                            <div class="form-group">
+                                <label class="form-label">Category</label>
+                                <div class="selectgroup w-100">
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="food" class="selectgroup-input"
+                                            @if ($product->category == 'food') checked @endif>
+                                        <span class="selectgroup-button">Food</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="drink" class="selectgroup-input"
+                                            @if ($product->category == 'drink') checked @endif>
+                                        <span class="selectgroup-button">Drink</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="category" value="snack" class="selectgroup-input"
+                                            @if ($product->category == 'snack') checked @endif>
+                                        <span class="selectgroup-button">Snack</span>
+                                    </label>
 
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>

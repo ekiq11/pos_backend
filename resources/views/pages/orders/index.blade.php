@@ -34,7 +34,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4>All Orders</h4>
-                            </div>Orders
+                            </div>
                             <div class="card-body">
 
                                 {{-- <div class="float-right">
@@ -58,9 +58,7 @@
                                             <th>Total Price</th>
                                             <th>Total Item</th>
                                             <th>Kasir</th>
-                                            <th>Pelanggan</th>
-                                            <th>Alamat</th>
-                                            <th>Whatsapp</th>
+
                                         </tr>
                                         @foreach ($orders as $order)
                                             <tr>
@@ -78,18 +76,7 @@
                                                     {{ $order->kasir->name }}
 
                                                 </td>
-                                                <td>
-                                                    {{ $order->nama_cust }}
 
-                                                </td>
-                                                <td>
-                                                    {{ $order->alamat_cust }}
-
-                                                </td>
-                                                <td>
-                                                    {{ $order->whatsapp_cust }}
-
-                                                </td>
 
                                             </tr>
                                         @endforeach

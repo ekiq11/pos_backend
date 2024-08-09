@@ -23,6 +23,7 @@ class ProductFactory extends Factory
             'stock' => $this->faker->numberBetween(1, 100),
             'category' => $this->faker->randomElement(['food', 'drink', 'snack']),
             'image' => $this->faker->imageUrl(),
+            'kasir_id' => $this->faker->numberBetween(1,11)
         ];
     }
 }
